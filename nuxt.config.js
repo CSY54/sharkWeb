@@ -1,6 +1,9 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
+  env: {
+    BASE_URL: process.env.SHARK_API_URL
+  },
   /*
    ** Nuxt rendering mode
    ** See https://nuxtjs.org/api/configuration-mode
@@ -75,7 +78,7 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: process.env.SHARK_API_URL,
+    baseURL: process.env.BASE_URL || 'https://c65f06c9e1ce.ngrok.io/api',
     validateStatus: (status) => {
       return status >= 200 && status < 500
     }
